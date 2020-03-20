@@ -3,14 +3,14 @@ import csv
 
 environment = {
     'cloud-drive': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/syndication.csv',
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
         'thumbnail_download_dir': '/Users/Lazybeam/Google Drive File Stream/My Drive/provider-videos-YH/thumbnails/',
         'video_download_dir': '/Users/Lazybeam/Google Drive File Stream/My Drive/provider-videos-YH/videos/'
     },
     'local': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/test.csv',
-        'thumbnail_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/',
-        'video_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/'
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
+        'thumbnail_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/thumbnails/',
+        'video_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/videos/'
     }
 
 }
@@ -31,9 +31,10 @@ def main():
     download_assets(video_list, headers)
 
     if not error_log:
-        print('\n--------------------')
-        print('Sucessfully downloaded assets')
+        print('\n---------END-----------')
+        print('Successfully downloaded assets')
     else:
+        print('\n---------END-----------')
         print(error_log)
 
 
@@ -76,6 +77,8 @@ def download_line(row, video_list, headers):
     thumbnail_url = row['thumbnail_url']
     video_url = row['video_url']
 
+    print(title)
+
     media_id = video_url.split('media/')[1].split('/')[0]
 
     string = topic + '-' + topic_no + '-' + media_id
@@ -89,16 +92,22 @@ def download_line(row, video_list, headers):
 
     # download thumbnail and update video_list
     thumbnail_file = download(thumbnail_url, destination=thumbnail_file_path)
-    print('Thumbnail downloaded for ' + title)
-    row['thumbnail_file'] = thumbnail_file_name
+    if thumbnail_file != '':
+        print('Thumbnail downloaded')
+        row['thumbnail_file'] = thumbnail_file_name
+    else:
+        print('Failed to download thumbnail')
 
     # write thumbnail info to csv
     write_to_csv(video_list, headers)
 
     # download video and update video_list
     video_file = download(video_url, destination=video_file_path)
-    print('Video downloaded for ' + title)
-    row['video_file'] = video_file_name
+    if video_file != '':
+        print('Video downloaded')
+        row['video_file'] = video_file_name
+    else:
+        print('Failed to download video')
 
     # write video info to csv
     write_to_csv(video_list, headers)
@@ -107,12 +116,10 @@ def download_line(row, video_list, headers):
 def download(url, destination):
     try:
         downloaded_file = urllib.request.urlretrieve(url, destination)
+        return downloaded_file
     except Exception as error:
-        print(error)
         error_log.append(error)
         return ''
-    else:
-        return downloaded_file
 
 
 def write_to_csv(video_list, headers):
