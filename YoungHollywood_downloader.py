@@ -4,8 +4,8 @@ import csv
 environment = {
     'cloud-drive': {
         'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
-        'thumbnail_download_dir': '/Users/Lazybeam/Google Drive File Stream/My Drive/provider-videos-YH/thumbnails/',
-        'video_download_dir': '/Users/Lazybeam/Google Drive File Stream/My Drive/provider-videos-YH/videos/'
+        'thumbnail_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Young Hollywood/For Editors/thumbnails/',
+        'video_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Young Hollywood/For Editors/videos/'
     },
     'local': {
         'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
@@ -18,7 +18,7 @@ environment = {
 error_log = []
 
 # switch if cloud drive is full
-config = environment['local']
+config = environment['cloud-drive']
 
 
 def main():
