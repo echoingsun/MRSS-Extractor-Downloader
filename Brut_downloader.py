@@ -3,12 +3,12 @@ import csv
 
 environment = {
     'cloud-drive': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/Brut/download.csv',
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work/MCP/Brut/download.csv',
         'thumbnail_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Brut/For Editors/thumbnails/',
         'video_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Brut/For Editors/videos/'
     },
     'local': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/Brut/download.csv',
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work/MCP/Brut/download.csv',
         'thumbnail_download_dir': '/Users/Lazybeam/Desktop/Work/Brut/output/thumbnails/',
         'video_download_dir': '/Users/Lazybeam/Desktop/Work/Brut/output/videos/'
     }
@@ -18,7 +18,7 @@ environment = {
 error_log = []
 
 # switch if cloud drive is full
-config = environment['local']
+config = environment['cloud-drive']
 
 
 def main():

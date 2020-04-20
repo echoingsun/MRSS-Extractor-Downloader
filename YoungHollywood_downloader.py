@@ -3,12 +3,12 @@ import csv
 
 environment = {
     'cloud-drive': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work/MCP/YoungHollywood/download.csv',
         'thumbnail_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Young Hollywood/For Editors/thumbnails/',
         'video_download_dir': '/Users/Lazybeam/Dropbox/Media Content Provider/Young Hollywood/For Editors/videos/'
     },
     'local': {
-        'csv_file_path': '/Users/Lazybeam/Desktop/Work/YoungHollywood/download.csv',
+        'csv_file_path': '/Users/Lazybeam/Desktop/Work//MCP/YoungHollywood/download.csv',
         'thumbnail_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/thumbnails/',
         'video_download_dir': '/Users/Lazybeam/Desktop/Work/YoungHollywood/output/videos/'
     }

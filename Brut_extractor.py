@@ -6,8 +6,8 @@ import csv
 
 config = {
     'brut_url': 'https://api.brut.media/v1/rss?auth=73mJLEtY9fPlZXRhCY66FCEMDeCCPUI45I9VdFF94Tt8RYqfWC',
-    'output_csv_dir': '/Users/Lazybeam/Desktop/Work/Brut/',
-    'log_path': '/Users/Lazybeam/Desktop/Work/Brut/log.txt',
+    'output_csv_dir': '/Users/Lazybeam/Desktop/Work/MCP/Brut/',
+    'log_path': '/Users/Lazybeam/Desktop/Work/MCP/Brut/log.txt',
     'tags': ['title', 'description', 'category', 'pubdate', 'guid'],
     'content_tag': 'content',
     'csv_headers': ['id', 'extraction_date', 'category', 'duration', 'brut_pub_date', 'title', 'video_url',
@@ -15,7 +15,8 @@ config = {
     'brut_category_mapping': {
         'entertainment': ['entertainment'],
         'news': ['news', 'economy'],
-        'lifestyle': ['lifestyle', 'health'],
+        'health': ['health'],
+        'lifestyle': ['lifestyle', 'travel', 'food'],
         'tech': ['science', 'technology', 'tech'],
         'sports': ['sport', 'sports'],
         'worldwide': ['international']
